@@ -1,0 +1,29 @@
+module.exports = {
+    env: {
+        browser: true,
+        es6: true
+    },
+    extends: "eslint:recommended",
+    parserOptions: {
+        ecmaFeatures: {
+            jsx: true
+        },
+        sourceType: "module"
+    },
+    rules: {
+        indent: ["error", "tab"],
+        "linebreak-style": ["error", "unix"],
+        quotes: ["error", "double"],
+        semi: ["error", "always"],
+        "comma-dangle": ["error", "always"]
+    },
+    plugins: [
+        "vue",
+    ],
+    globals: {
+        expect: true,
+        sinon: true,
+        describe: true,
+        it: true
+    }
+};
