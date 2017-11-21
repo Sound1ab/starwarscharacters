@@ -15,7 +15,9 @@ module.exports = {
         "linebreak-style": ["error", "unix"],
         quotes: ["error", "double"],
         semi: ["error", "always"],
-        "comma-dangle": ["error", "always"]
+        "comma-dangle": ["error", "always"],
+        "no-unused-vars": 0,
+        "no-console": 0,
     },
     plugins: [
         "vue",
