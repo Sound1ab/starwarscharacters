@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h1 class="alpha">Hello world - This is a title</h1>
+		<h1 class="alpha">Hello world</h1>
 		<h2 class="hello__title">This is a scoped style</h2>
 	</div>
 </template>
