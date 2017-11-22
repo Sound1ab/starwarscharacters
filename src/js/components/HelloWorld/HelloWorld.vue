@@ -11,7 +11,7 @@ export default {
 };
 </script>
 
-<style lang="scss" type="text/scss">
+<style lang="scss" type="text/scss" scoped>
 	$module: 'hello';
 
 	.#{$module} {
