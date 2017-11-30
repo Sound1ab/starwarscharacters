@@ -2,8 +2,8 @@
   "name": "boileoplate",
   "version": "2.0.0",
   "description": "A VueJS boilerplate",
-  "author": "Leo Kyrkos <Leo.Kyrkos@yourfavouritestory.com>",
-  "private": true,
+  "author": "Leo Kyrkos <leo.kyrkos@gmail.com>",
+  "private": false,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
