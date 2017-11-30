@@ -8,5 +8,9 @@ describe("HelloWorld.vue", () => {
 		expect(vm.$el.querySelector("h1").textContent).toEqual(
 			"Hello world"
 		);
+
+		expect(vm.$el.querySelector("h2").textContent).toEqual(
+			"This is a scoped style"
+		);
 	});
 });
