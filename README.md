@@ -1,14 +1,12 @@
 # boileoplate
 
-**YFS team members please read the rulebook below before using this template. Feel free to do your own thing but if you decide to go a different route with JS/CSS practices please document it here.**
-
 > A VueJS boilerplate using the following things:
 
 * Webpack for bundling
 * Babel for ES6
 * ESLint for JS style enforcement
 * SCSS for styling
-* Mocha + Chai for unit testing
+* Jest for testing
 
 ---
 
@@ -19,14 +17,12 @@ Components should be small and reusable. Rule of thumb if you ever use anything 
 
 Components live in their own directories and are likely to be accompanied by:
 
-* A pure Vue component that takes props only. All data fetching should be handled by the higher order component.
+* A pure/presentational Vue component that takes props only.
 * A higher order component that handles the getting and digesting of data before passing props to the pure component.
-* A .spec.js file for testing the component (this will be picked up automatically by 'yarn run test')
+* A .spec.js file for testing the component
 
 ### Styles
-The project is set up by default to leverage a single SCSS file which will be imported into your App.vue component. This file (main.scss) is a list of imports in the ITCSS structure. This is a conscious decision to avoid in-component styling and its potential for duplicating styles. I also prefer it to the @import ~@common_variables_and_placeholders.scss pattern that in-component styling seems to lead to.
-
-If you disagree with this rule then feel free to do all component styling inside your components. But if you do so please ensure that **_all_** CSS rules are done in your component files. This will avoid duplication and make it easy for other developers to find what they're looking for.
+This setup assumes that you will be leveraging in-component styling. The src/scss directory is the location for all global styles, mixins and configuration objects. Those styles ar available everywhere so you do not need to follow a pattern of @importing stuff for every `<style>` section of your components. This globality is achieved by adding the stylesheet to the scss loader definition in build/utils.
 
 
 
@@ -39,7 +35,7 @@ If you disagree with this rule then feel free to do all component styling inside
 yarn
 
 # serve with hot reload at localhost:8080
-yarn run dev
+yarn run start
 
 # build for production with minification
 yarn run build
