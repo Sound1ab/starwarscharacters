@@ -1,4 +1,4 @@
-# boileoplate
+# YFS Vue Scaffolding
 
 > A VueJS boilerplate using the following things:
 
