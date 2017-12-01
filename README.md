@@ -24,7 +24,10 @@ Components live in their own directories and are likely to be accompanied by:
 ### Styles
 This setup assumes that you will be leveraging in-component styling. The src/scss directory is the location for all global styles, mixins and configuration objects. Those styles ar available everywhere so you do not need to follow a pattern of @importing stuff for every `<style>` section of your components. This globality is achieved by adding the stylesheet to the scss loader definition in build/utils.
 
+### State management
+You can feel free to include whichever form of state management tool is required for your project. Vuex is not included by default because it is not required for every project and would be an example of bloat.
 
+> Flux libraries are like glasses: you’ll know when you need them.
 
 
 ---
