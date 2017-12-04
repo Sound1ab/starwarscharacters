@@ -8,6 +8,8 @@ A VueJS boilerplate using the following things:
 * SCSS for styling
 * Jest for testing
 
+Project is based on Vue CLI Webpack version 1.2.4
+
 ----
 ## Installation
 
