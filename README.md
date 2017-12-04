@@ -36,6 +36,17 @@ You can feel free to include whichever form of state management tool is required
 
 > Flux libraries are like glasses: you’ll know when you need them.
 
+### Testing
+The only rule we currently have for testing is that if there is a 'test' script included in the package.json it should be run before you start working and before you commit your changes.
+
+Our current best practice guide for testing is essentially boiled down to the following:
+
+* Include tests that make you feel confident in the application.
+* If your tests are neat and pleasant but add nothing of value then don't bother writing them. 
+* If you have no tests at all then you're entirely reliant on manual testing.
+
+This section will be updated as our experience grows. It's early days yet for YFS frontend testing so do your best to include those tests that you find most useful and we will have regular discussions to update our team best practices on the matter.
+
 
 ---
 ## Commands
