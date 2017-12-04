@@ -1,3 +1,1 @@
-export default {
-	SOMETHING: true,
-};
+export default {};
