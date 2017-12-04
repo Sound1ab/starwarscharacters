@@ -1,16 +1,18 @@
 import Vue from "vue";
 import HelloWorld from "./HelloWorld";
 
-describe("HelloWorld.vue", () => {
-	it("should render correct contents", () => {
-		const Constructor = Vue.extend(HelloWorld);
-		const vm = new Constructor().$mount();
-		expect(vm.$el.querySelector("h1").textContent).toEqual(
-			"Hello world"
-		);
+const Constructor = Vue.extend(HelloWorld);
+const component = new Constructor({
+	propsData: {
+		title: "Wibble",
+		subtitle: "Wobble",
+	}
+}).$mount();
+const el = component.$el;
 
-		expect(vm.$el.querySelector("h2").textContent).toEqual(
-			"This is a scoped style"
-		);
+describe("HelloWorld.vue", () => {
+	it("Should render the title and subtitle props correctly.", () => {
+		expect(el.querySelector(`[data-test="title"]`).textContent).toEqual("Wibble");
+		expect(el.querySelector(`[data-test="subtitle"]`).textContent).toEqual("Wobble");
 	});
 });
