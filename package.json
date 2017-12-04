@@ -1,8 +1,8 @@
 {
-  "name": "boileoplate",
-  "version": "2.0.0",
+  "name": "yfs_vue_scaffold",
+  "version": "2.1.0",
   "description": "A VueJS boilerplate",
-  "author": "Leo Kyrkos <leo.kyrkos@gmail.com>",
+  "author": "YFS",
   "private": false,
   "license": "MIT",
   "scripts": {
