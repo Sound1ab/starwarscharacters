@@ -1,12 +1,19 @@
 # YFS Vue Scaffolding
 
-> A VueJS boilerplate using the following things:
+A VueJS boilerplate using the following things:
 
 * Webpack for bundling
 * Babel for ES6
 * ESLint for JS style enforcement
 * SCSS for styling
 * Jest for testing
+
+----
+## Installation
+
+The following bash command is a quickstart for cloning the project and deleting the git repo that will be included. If you prefer another method go ahead and use that.
+
+git clone https://bitbucket.org/digital_annexe/scaffolding_vue <PROJECT_NAME> && rm -rf <PROJECT_NAME>/.git
 
 ---
 
