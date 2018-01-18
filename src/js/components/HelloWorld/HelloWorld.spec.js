@@ -1,14 +1,13 @@
-import Vue from "vue";
+import { mount } from "@vue/test-utils";
 import HelloWorld from "./HelloWorld";
 
-const Constructor = Vue.extend(HelloWorld);
-const component = new Constructor({
+const component = mount(HelloWorld, {
 	propsData: {
 		title: "Wibble",
 		subtitle: "Wobble",
 	}
-}).$mount();
-const el = component.$el;
+});
+const el = component.element;
 
 describe("HelloWorld.vue", () => {
 	it("Should render the title and subtitle props correctly.", () => {
