@@ -12,7 +12,8 @@
     "watchtest": "jest --watchAll --config test/unit/jest.conf.js",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit/specs",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "analyse": "analyse=true yarn build"
   },
   "dependencies": {
     "vue": "^2.5.2",

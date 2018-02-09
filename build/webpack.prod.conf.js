@@ -10,6 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
@@ -122,6 +123,10 @@ const webpackConfig = merge(baseWebpackConfig, {
     ])
   ]
 })
+
+if (process.env.analyse) {
+  webpackConfig.plugins.unshift(new BundleAnalyzerPlugin());
+}
 
 if (config.build.productionGzip) {
   const CompressionWebpackPlugin = require('compression-webpack-plugin')
