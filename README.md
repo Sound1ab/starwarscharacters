@@ -13,9 +13,23 @@ Project is based on Vue CLI Webpack version 1.2.4
 ----
 ## Installation
 
-The following bash command is a quickstart for cloning the project and deleting the git repo that will be included. If you prefer another method go ahead and use that.
+If you add the following to your ~/.bash_profile you can install a new project from the command line:
 
-git clone https://bitbucket.org/digital_annexe/scaffolding_vue <PROJECT_NAME> && rm -rf <PROJECT_NAME>/.git
+```
+vue-scaffold() {
+    git clone "https://bitbucket.org/digital_annexe/scaffolding_vue" "$1"
+    rm -rf "$1/.git"
+    cd "$1"
+    yarn
+}
+```
+
+then:
+
+```bash
+# To create a project called wibble:
+$ vue-scaffold wibble
+```
 
 ---
 

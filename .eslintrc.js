@@ -20,7 +20,13 @@ module.exports = {
         "linebreak-style": ["error", "unix"],
         quotes: ["error", "double"],
         semi: ["error", "always"],
-        "comma-dangle": ["error", "always"],
+        "comma-dangle": ["error", {
+            "arrays": "never",
+            "objects": "always",
+            "imports": "never",
+            "exports": "never",
+            "functions": "ignore"
+        }],
         "no-unused-vars": 0,
         "no-console": 0,
     },
