@@ -12,19 +12,19 @@
 
 <script>
 export default {
-	name: "HelloWorld",
+	name: 'HelloWorld',
 	props: {
 		title: {
 			type: String,
 			required: false,
-			default: "Hello world",
+			default: 'Hello world'
 		},
 		subtitle: {
 			type: String,
 			required: false,
-			default: "This is a subtitle",
-		},
-	},
+			default: 'This is a subtitle'
+		}
+	}
 };
 </script>
 

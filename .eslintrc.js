@@ -1,42 +1,34 @@
+// https://eslint.org/docs/user-guide/configuring
+
 module.exports = {
-    env: {
-        browser: true,
-        es6: true
-    },
-    extends: [
-        // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
-        // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
-        'plugin:vue/essential', 
-        // https://github.com/standard/standard/blob/master/docs/RULES-en.md
-    ],
-    parserOptions: {
-        ecmaFeatures: {
-            jsx: true
-        },
-        sourceType: "module"
-    },
-    rules: {
-        indent: ["error", "tab"],
-        "linebreak-style": ["error", "unix"],
-        quotes: ["error", "double"],
-        semi: ["error", "always"],
-        "comma-dangle": ["error", {
-            "arrays": "never",
-            "objects": "always",
-            "imports": "never",
-            "exports": "never",
-            "functions": "ignore"
-        }],
-        "no-unused-vars": 0,
-        "no-console": 0,
-    },
-    plugins: [
-        "vue",
-    ],
-    globals: {
-        expect: true,
-        sinon: true,
-        describe: true,
-        it: true
-    }
-};
+	root: true,
+	parser: 'babel-eslint',
+	parserOptions: {
+		sourceType: 'module'
+	},
+	env: {
+		browser: true,
+	},
+	// https://github.com/standard/standard/blob/master/docs/RULES-en.md
+	extends: 'standard',
+	// required to lint *.vue files
+	plugins: [
+		'html'
+	],
+	// add your custom rules here
+	'rules': {
+		// allow paren-less arrow functions
+		'arrow-parens': 0,
+		// allow async-await
+		'generator-star-spacing': 0,
+		// allow debugger during development
+		'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
+		// tabs instead of spaces
+		"indent": [2, "tab"],
+		"no-tabs": 0,
+		"semi": [2, "always"],
+		"comma-dangle": ["error", "never"],
+		"object-curly-spacing": [2, "never"],
+		"no-unused-expressions": [2, {"allowTernary": true, "allowShortCircuit": true}]
+	}
+}

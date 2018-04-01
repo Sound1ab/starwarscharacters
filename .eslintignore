@@ -3,3 +3,6 @@
 /dist/
 /*.js
 /test/unit/coverage/
+
+.idea/vcs.xml
+.idea/workspace.xml

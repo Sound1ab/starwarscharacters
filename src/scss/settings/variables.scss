@@ -1,16 +1,19 @@
-// variables //
-
-// Layout
-
-	$headerWidth: 		250;
-
 // Typography
 // -------------------------
 
 	// family
-	$ffBase: 			'Helvetica', sans-serif;
-	$ffSecondary: 		Arial, sans-serif;
-	$ffHeadings: 		'Helvetica', serif;
+	$ffBase: 			-apple-system, BlinkMacSystemFont,
+						"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+						"Fira Sans", "Droid Sans", "Helvetica Neue",
+						sans-serif;
+	$ffSecondary: 		-apple-system, BlinkMacSystemFont,
+						"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+						"Fira Sans", "Droid Sans", "Helvetica Neue",
+						sans-serif;
+	$ffHeadings: 		-apple-system, BlinkMacSystemFont,
+						"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+						"Fira Sans", "Droid Sans", "Helvetica Neue",
+						sans-serif;
 
 
 	// style
