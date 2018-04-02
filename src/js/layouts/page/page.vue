@@ -55,7 +55,10 @@
 
 <style lang="scss" type="text/scss">
 	.page {
-		position: relative;
+		/*position: relative;*/
 		padding: em(8);
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+		grid-gap: 10px;
 	}
 </style>
