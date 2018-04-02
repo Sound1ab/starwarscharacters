@@ -1,5 +1,5 @@
 <template>
-	<form @submit.prevent="submit" class="form-input">
+	<form @submit.prevent="handleSubmit" class="form-input">
 		<input
 			ref="input"
 			class="form-input__input"
@@ -14,7 +14,7 @@
 <script>
 	import VueTypes from 'vue-types';
 	export default {
-		name: 'FormInput',
+		name: 'form-input',
 		props: {
 			input: VueTypes.string.def('')
 		},
@@ -31,6 +31,9 @@
 		methods: {
 			handleBlur () {
 				this.$emit('inputBlur');
+			},
+			handleSubmit () {
+				return;
 			}
 		},
 		mounted () {
@@ -43,10 +46,14 @@
 <style lang="scss" type="text/scss">
 	.form-input {
 		&__input {
-			@include responsive-font(8vw, 32px, 80px, 32px);
-			background-color: transparent;
-			color: white;
-			width: 100%;
+			background-color: white;
+			color: black;
+			outline: none;
+			border: none;
+			padding: em(8);
+			width: 50%;
+			display: block;
+			margin: 0 auto;
 		}
 	}
 </style>

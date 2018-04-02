@@ -1,15 +1,15 @@
 * {
-    box-sizing: inherit;
+	box-sizing: inherit;
 }
 
 *:after,
 *:before {
-    box-sizing: inherit;
+	box-sizing: inherit;
 }
 
 html {
-    font-size: 10px;
-    box-sizing: border-box;
+	font-size: 10px;
+	box-sizing: border-box;
 	width: 100%;
 	height: 100%;
 	background-color: $primaryColour;
@@ -17,11 +17,12 @@ html {
 }
 
 body {
-  font-family: $ffBase;
-  font-weight: $fwBase;
-  line-height: $lhBase / $fzBase;
-  @include font-size($fzBase);
-  color: black;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	font-family: $ffBase;
+	font-weight: $fwBase;
+	line-height: $lhBase / $fzBase;
+	@include font-size($fzBase);
+	color: black;
+	height: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
