@@ -1,19 +1,69 @@
 <template>
 	<div class="pagination">
-	    <span>Previous</span>
-		{{$route.params.id}}
-	    <span>Next</span>
+		<div
+			v-if="previous"
+			class="pagination__chevron"
+			@click="handlePrevious"
+		>
+			<svgicon
+				name="chevron-left"
+				:color="'white'"
+				width="50"
+				height="50"
+			>
+			</svgicon>
+		</div>
+		{{currentPage}}
+		<div
+			v-if="next"
+			class="pagination__chevron"
+			@click="handleNext"
+		>
+			<svgicon
+				name="chevron-right"
+				:color="'white'"
+				width="50"
+				height="50"
+			>
+			</svgicon>
+		</div>
 	</div>
 </template>
 
 <script>
+	import '@/assets/compiled-icons/chevron-left';
+	import '@/assets/compiled-icons/chevron-right';
+	import {mapState} from 'vuex';
 	export default {
-		name: 'pagination'
+		name: 'pagination',
+		computed: {
+			...mapState({
+				previous: state => state.fetch.previous,
+				next: state => state.fetch.next
+			}),
+			currentPage () {
+				return parseInt(this.$route.params.id, 10);
+			}
+		},
+		methods: {
+			handlePrevious () {
+				this.$router.push({name: 'page', params: {id: this.currentPage - 1}});
+			},
+			handleNext () {
+				this.$router.push({name: 'page', params: {id: this.currentPage + 1}});
+			}
+		}
 	};
 </script>
 
 <style lang="scss" type="text/scss">
 	.pagination {
-		padding: em(40)
+		padding: em(40);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		&__chevron {
+			cursor: pointer;
+		}
 	}
 </style>
