@@ -20,7 +20,7 @@ const state = initialState();
 
 const actions = {
 	[SEARCH_TRANSITION]: transition.bind(null, searchMachine),
-	START_TIMER ({dispatch}, {params}) {
+	[START_TIMER] ({dispatch}, {params}) {
 		clearTimeout(timeout);
 		timeout = setTimeout(() => {
 			dispatch(SEARCH_TRANSITION, {
