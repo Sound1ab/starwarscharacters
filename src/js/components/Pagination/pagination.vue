@@ -37,6 +37,7 @@
 	export default {
 		name: 'pagination',
 		computed: {
+			// Previous and next returned from api response
 			...mapState({
 				previous: state => state.fetch.previous,
 				next: state => state.fetch.next

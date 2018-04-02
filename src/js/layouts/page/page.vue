@@ -30,6 +30,8 @@
 			})
 		},
 		methods: {
+			// Function uses the current route id e.g. 1, 2
+			// to load the correct page information
 			dispatchFetch (page) {
 				if (!page) {
 					return;

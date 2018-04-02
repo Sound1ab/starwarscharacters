@@ -33,13 +33,16 @@ const actions = {
 			state.cancelToken.cancel();
 		}
 	},
+	// Function dynamically decides on which query to send
+	// based on the type of dispatch function used.
+	// Either page load or search
 	[FETCH_DATA] ({commit, dispatch}, {params: {type, page = 0, query = ''}}) {
 		const queryString = type === 'SEARCH' && query.length > 0
 			? `?search=${query}`
 			: `?page=${page}`;
 		axios.get(`${starWars['PEOPLE']}${queryString}`)
 			.then(res => {
-				if (res.status !== 200 && res.data) {
+				if (res.status !== 200 && !res.data) {
 					throw new Error(res.statusText);
 				}
 				commit(FETCH_DATA, {

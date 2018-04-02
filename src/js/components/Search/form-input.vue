@@ -18,6 +18,7 @@
 		props: {
 			input: VueTypes.string.def('')
 		},
+		// 2-way binding to search state
 		computed: {
 			computedInput: {
 				get () {

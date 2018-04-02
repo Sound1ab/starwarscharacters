@@ -4,6 +4,7 @@ import Page from '@/js/layouts/page/page';
 
 Vue.use(Router);
 
+// Redirect straight to page 1
 export default new Router({
 	mode: 'history',
 	fallback: false,

@@ -24,6 +24,8 @@
 			})
 		},
 		methods: {
+			// Starts the search input countdown which
+			// will eventually fire the fetch function
 			handleInputChanged (value) {
 				this.$store.dispatch(SEARCH_TRANSITION, {
 					type: 'TEXT_INPUT',
