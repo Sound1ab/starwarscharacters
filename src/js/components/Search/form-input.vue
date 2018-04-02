@@ -51,7 +51,8 @@
 			outline: none;
 			border: none;
 			padding: em(8);
-			width: 50%;
+			width: 100%;
+			max-width: em(320);
 			display: block;
 			margin: 0 auto;
 		}
