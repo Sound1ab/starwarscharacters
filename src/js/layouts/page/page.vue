@@ -1,20 +1,39 @@
 <template>
 	<div class="page">
-	    hey
+	    <card
+			v-for="(person, index) in data"
+			:key="`${person.name}-${index}`"
+			:name="person.name"
+			:gender="person.gender"
+			:hair-color="person.hair_color"
+			:height="person.height"
+			:mass="person.mass"
+			:skin-color="person.skin_color"
+			:eye-color="person.eye_color"
+			:index="index + 1"
+		></card>
 	</div>
 </template>
 
 <script>
-	import VueTypes from 'vue-types';
+	import Card from '@/js/components/Card/card';
 	import {FETCH_TRANSITION} from '@/js/vuex/modules/fetch';
+	import {mapState} from 'vuex';
 	export default {
 		name: 'page',
+		components: {
+			Card
+		},
+		computed: {
+			...mapState({
+				data: state => state.fetch.data
+			})
+		},
 		methods: {
 			dispatchFetch (page) {
 				if (!page) {
 					return;
 				}
-				console.log(page);
 				this.$store.dispatch(FETCH_TRANSITION, {
 					type: 'FETCH_DATA',
 					params: {
