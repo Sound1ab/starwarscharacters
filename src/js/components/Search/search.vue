@@ -28,6 +28,7 @@
 				this.$store.dispatch(SEARCH_TRANSITION, {
 					type: 'TEXT_INPUT',
 					params: {
+						type: 'SEARCH',
 						query: value,
 						page: this.$route.params.id
 					}

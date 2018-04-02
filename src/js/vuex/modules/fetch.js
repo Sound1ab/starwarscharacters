@@ -33,14 +33,18 @@ const actions = {
 	},
 	[FETCH_DATA] ({commit, dispatch}, {params: {type, page = 0, query = ''}}) {
 		const queryString = type === 'SEARCH' && query.length > 0
-			? `?page=${page}`
-			: `?search=${query}`;
+			? `?search=${query}`
+			: `?page=${page}`;
 		axios.get(`${starWars['PEOPLE']}${queryString}`)
 			.then(res => {
-				if (res.status !== 200) {
+				if (res.status !== 200 && res.data) {
 					throw new Error(res.statusText);
 				}
-				commit(FETCH_DATA, res.data.results);
+				commit(FETCH_DATA, {
+					data: res.data.results,
+					previous: res.data.previous,
+					next: res.data.next
+				});
 				dispatch(FETCH_TRANSITION, {type: 'SUCCESS'});
 			})
 			.catch(() => {
@@ -56,8 +60,10 @@ const mutations = {
 	[CREATE_CANCEL_TOKEN] (state, cancelToken) {
 		state.cancelToken = cancelToken;
 	},
-	[FETCH_DATA] (state, payload) {
-		state.data = payload;
+	[FETCH_DATA] (state, {data, previous, next}) {
+		state.data = data;
+		state.previous = previous;
+		state.next = next;
 	}
 };
 
