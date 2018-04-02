@@ -30,7 +30,7 @@ const actions = {
 		}, 500);
 	},
 	[UPDATE_SEARCH] ({commit}, {params: {query = ''}}) {
-		commit('updateSearch', query);
+		commit(UPDATE_SEARCH, query);
 	},
 	[DISPATCHING_SEARCH] ({dispatch}, {params}) {
 		dispatch(FETCH_TRANSITION, {

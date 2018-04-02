@@ -32,8 +32,10 @@ const actions = {
 		}
 	},
 	[FETCH_DATA] ({commit, dispatch}, {params: {type, page = 0, query = ''}}) {
-		const queryString = type === 'PAGE' ? '?page=' : '?search=';
-		axios.get(`${starWars['PEOPLE']}${queryString}${page}`)
+		const queryString = type === 'SEARCH' && query.length > 0
+			? `?page=${page}`
+			: `?search=${query}`;
+		axios.get(`${starWars['PEOPLE']}${queryString}`)
 			.then(res => {
 				if (res.status !== 200) {
 					throw new Error(res.statusText);
