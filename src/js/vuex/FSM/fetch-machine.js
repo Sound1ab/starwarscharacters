@@ -22,11 +22,7 @@ export const fetchMachine = Machine({
 			onEntry: ['SHOW_LOADING', 'FETCH_DATA'],
 			on: {
 				SUCCESS: 'idle',
-				FAILURE: {
-					idle: {
-						actions: ['SHOW_CONFIRMATION']
-					}
-				}
+				FAILURE: 'idle'
 			},
 			onExit: ['HIDE_LOADING']
 		}
