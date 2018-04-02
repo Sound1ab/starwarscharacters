@@ -31,8 +31,16 @@ const actions = {
 			state.cancelToken.cancel();
 		}
 	},
-	[FETCH_DATA] ({commit}, payload) {
-		commit('FETCH_DATA', payload);
+	[FETCH_DATA] ({commit}, {params: {page = 0, query = ''}}) {
+		console.log('fetching data', page);
+		// commit('FETCH_DATA', payload);
+		axios.get(`${starWars['PEOPLE']}/?page=${page}`)
+			.then(res => {
+				console.log(res);
+			})
+			.catch(err => {
+				console.log(err);
+			});
 	}
 };
 
