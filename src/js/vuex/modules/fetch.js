@@ -23,23 +23,26 @@ const actions = {
 	[CREATE_CANCEL_TOKEN] ({commit, dispatch}, {params}) {
 		let CancelToken = axios.CancelToken;
 		let source = CancelToken.source();
-		commit('createCancelToken', source);
-		dispatch('FETCH_TRANSITION', {type: 'TOKEN_CREATED', params});
+		commit(CREATE_CANCEL_TOKEN, source);
+		dispatch(FETCH_TRANSITION, {type: 'TOKEN_CREATED', params});
 	},
 	[CANCEL_OUTGOING_REQUEST] ({state}) {
 		if (state.cancelToken) {
 			state.cancelToken.cancel();
 		}
 	},
-	[FETCH_DATA] ({commit}, {params: {page = 0, query = ''}}) {
-		console.log('fetching data', page);
-		// commit('FETCH_DATA', payload);
-		axios.get(`${starWars['PEOPLE']}/?page=${page}`)
+	[FETCH_DATA] ({commit, dispatch}, {params: {type, page = 0, query = ''}}) {
+		const queryString = type === 'PAGE' ? '?page=' : '?search=';
+		axios.get(`${starWars['PEOPLE']}${queryString}${page}`)
 			.then(res => {
-				console.log(res);
+				if (res.status !== 200) {
+					throw new Error(res.statusText);
+				}
+				commit(FETCH_DATA, res.data.results);
+				dispatch(FETCH_TRANSITION, {type: 'SUCCESS'});
 			})
-			.catch(err => {
-				console.log(err);
+			.catch(() => {
+				dispatch(FETCH_TRANSITION, {type: 'FAILURE'});
 			});
 	}
 };
@@ -47,6 +50,9 @@ const actions = {
 const mutations = {
 	[FETCH_TRANSITION] (state, nextState) {
 		state.state = nextState;
+	},
+	[CREATE_CANCEL_TOKEN] (state, cancelToken) {
+		state.cancelToken = cancelToken;
 	},
 	[FETCH_DATA] (state, payload) {
 		state.data = payload;
