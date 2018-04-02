@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {fetchMachine} from '@/js/vuex/FSM/fetch-machine';
 import {transition} from '@/js/vuex/fsm-transition';
+import {starWars} from '@/js/vuex/api';
 
 export const FETCH_TRANSITION = 'FETCH_TRANSITION';
 export const CREATE_CANCEL_TOKEN = 'CREATE_CANCEL_TOKEN';
