@@ -14,7 +14,8 @@
 		"lint": "eslint --ext .js,.vue src test/unit/specs",
 		"build": "node build/build.js",
 		"analyse": "analyse=true yarn build",
-		"fix": "eslint -c .eslintrc.js --fix . --ext .js,.vue src"
+		"fix": "eslint -c .eslintrc.js --fix . --ext .js,.vue src",
+		"deploy": "npm run build && aws s3 sync --acl public-read --profile sound1ab --delete dist/ s3://starwarscharacters-180418"
 	},
 	"dependencies": {
 		"@vue/server-test-utils": "^1.0.0-beta.13",

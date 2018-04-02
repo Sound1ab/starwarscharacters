@@ -12,11 +12,17 @@
 
 #### Details ####
 
-Vue project to display and search Star Wars characters.
+Vue project to display and search Star Wars characters. 
+
+#### Live link ####
+
+http://starwarscharacters-180418.s3-website-us-east-1.amazonaws.com/
 
 #### Styling ####
 
 Styling with SASS using a BEM convention.
+
+Layout has been setup with CSS grid.
 
 #### Tests ####
 
