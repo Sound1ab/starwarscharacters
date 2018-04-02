@@ -12,7 +12,9 @@ function initialState () {
 	return {
 		state: fetchMachine.initialState,
 		cancelToken: null,
-		data: {}
+		data: {},
+		previous: null,
+		next: null
 	};
 }
 
