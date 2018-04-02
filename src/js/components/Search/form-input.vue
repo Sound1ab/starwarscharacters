@@ -32,9 +32,7 @@
 			handleBlur () {
 				this.$emit('inputBlur');
 			},
-			handleSubmit () {
-				return;
-			}
+			handleSubmit () {}
 		},
 		mounted () {
 			const ref = this.$refs['input'];
