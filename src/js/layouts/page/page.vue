@@ -37,5 +37,6 @@
 <style lang="scss" type="text/scss">
 	.page {
 		position: relative;
+		padding: em(8);
 	}
 </style>
