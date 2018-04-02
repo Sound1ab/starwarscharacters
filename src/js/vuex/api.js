@@ -1,3 +1,3 @@
 export const starWars = {
-	PEOPLE: `https://swapi.co/api/people`
+	PEOPLE: `https://swapi.co/api/people/`
 };
