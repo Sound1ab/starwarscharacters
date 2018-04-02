@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading htmlStructure html snapshot matches 1`] = `
+<div class="loading" name="fade-up" mode="out-in">
+    <img src="[object Object]" class="loading__c3po">
+</div>
+`;

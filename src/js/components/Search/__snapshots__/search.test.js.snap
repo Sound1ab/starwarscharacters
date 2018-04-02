@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination htmlStructure html snapshot matches 1`] = `
+<div class="search">
+    <!---->
+</div>
+`;

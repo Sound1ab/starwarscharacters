@@ -2,6 +2,7 @@
 	<div class="pagination">
 		<div
 			v-if="previous"
+			data-test="previous"
 			class="pagination__chevron"
 			@click="handlePrevious"
 		>
@@ -13,9 +14,12 @@
 			>
 			</svgicon>
 		</div>
-		{{currentPage}}
+		<span data-test="current-page">
+			{{currentPage}}
+		</span>
 		<div
 			v-if="next"
+			data-test="next"
 			class="pagination__chevron"
 			@click="handleNext"
 		>

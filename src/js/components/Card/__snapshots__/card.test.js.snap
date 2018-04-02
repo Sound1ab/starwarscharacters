@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card htmlStructure html snapshot matches 1`] = `
+<div class="card">
+    <h1 class="alpha"></h1>
+    <h2 class="beta"></h2>
+    <table class="card__table">
+        <!---->
+        <!---->
+        <tr>
+            <td class="card__table-cell">hairColor</td>
+            <td class="card__table-cell"></td>
+        </tr>
+        <tr>
+            <td class="card__table-cell">height</td>
+            <td class="card__table-cell"></td>
+        </tr>
+        <tr>
+            <td class="card__table-cell">mass</td>
+            <td class="card__table-cell"></td>
+        </tr>
+        <tr>
+            <td class="card__table-cell">skinColor</td>
+            <td class="card__table-cell"></td>
+        </tr>
+        <tr>
+            <td class="card__table-cell">eyeColor</td>
+            <td class="card__table-cell"></td>
+        </tr>
+        <tr>
+            <td class="card__table-cell">index</td>
+            <td class="card__table-cell">0</td>
+        </tr>
+    </table>
+</div>
+`;

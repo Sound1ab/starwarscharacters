@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination htmlStructure html snapshot matches 1`] = `
+<div class="pagination">
+    <div data-test="previous" class="pagination__chevron">
+        <!---->
+    </div> <span data-test="current-page">
+		2
+	</span>
+    <div data-test="next" class="pagination__chevron">
+        <!---->
+    </div>
+</div>
+`;
