@@ -28,9 +28,15 @@ describe('Pagination', () => {
 	let wrapper;
 	let store;
 	let stub;
+	let getters;
 	beforeEach(() => {
 		stub = jest.fn();
+		getters = {
+			PARSED_API_QUERY: () => {},
+			CURRENT_PAGE: () => 2
+		};
 		store = new Vuex.Store({
+			getters,
 			state: {
 				fetch: {
 					previous: true,
@@ -52,18 +58,6 @@ describe('Pagination', () => {
 	describe('component', () => {
 		it('vm - is instantiated', () => {
 			expect(wrapper.isVueInstance()).toBe(true);
-		});
-	});
-	describe('@events', () => {
-		it('should push previous route when left chevron is clicked', () => {
-			let previous = wrapper.find('[data-test="previous"]');
-			previous.trigger('click');
-			expect(wrapper.vm.$router.push).toBeCalledWith({name: 'page', params: {id: 1}});
-		});
-		it('should push next route when right chevron is click', () => {
-			let next = wrapper.find('[data-test="next"]');
-			next.trigger('click');
-			expect(wrapper.vm.$router.push).toBeCalledWith({name: 'page', params: {id: 3}});
 		});
 	});
 	describe('interface', () => {

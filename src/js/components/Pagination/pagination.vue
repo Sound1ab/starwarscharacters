@@ -15,7 +15,7 @@
 			</svgicon>
 		</div>
 		<span data-test="current-page">
-			{{currentPage}}
+			{{CURRENT_PAGE}}
 		</span>
 		<div
 			v-if="next"
@@ -37,25 +37,39 @@
 <script>
 	import '@/assets/compiled-icons/chevron-left';
 	import '@/assets/compiled-icons/chevron-right';
-	import {mapState} from 'vuex';
+	import {mapState, mapGetters} from 'vuex';
+	import {FETCH_TRANSITION} from '@/js/vuex/modules/fetch';
 	export default {
 		name: 'pagination',
 		computed: {
 			// Previous and next returned from api response
 			...mapState({
 				previous: state => state.fetch.previous,
-				next: state => state.fetch.next
+				next: state => state.fetch.next,
+				query: state => state.search.query
 			}),
-			currentPage () {
-				return parseInt(this.$route.params.id, 10);
-			}
+			...mapGetters([
+				'PARSED_API_QUERY',
+				'CURRENT_PAGE'
+			])
 		},
 		methods: {
+			dispatchFetch (page, direction) {
+				const type = this.PARSED_API_QUERY[direction]['search'] ? 'SEARCH' : 'PAGE';
+				this.$store.dispatch(FETCH_TRANSITION, {
+					type: 'FETCH_DATA',
+					params: {
+						type,
+						page,
+						query: this.query
+					}
+				});
+			},
 			handlePrevious () {
-				this.$router.push({name: 'page', params: {id: this.currentPage - 1}});
+				this.dispatchFetch(this.PARSED_API_QUERY.previous.page, 'previous');
 			},
 			handleNext () {
-				this.$router.push({name: 'page', params: {id: this.currentPage + 1}});
+				this.dispatchFetch(this.PARSED_API_QUERY.next.page, 'next');
 			}
 		}
 	};

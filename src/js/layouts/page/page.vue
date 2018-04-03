@@ -18,7 +18,7 @@
 <script>
 	import Card from '@/js/components/Card/card';
 	import {FETCH_TRANSITION} from '@/js/vuex/modules/fetch';
-	import {mapState} from 'vuex';
+	import {mapState, mapGetters} from 'vuex';
 	export default {
 		name: 'page',
 		components: {
@@ -27,7 +27,10 @@
 		computed: {
 			...mapState({
 				data: state => state.fetch.data
-			})
+			}),
+			...mapGetters([
+				'CURRENT_PAGE'
+			])
 		},
 		methods: {
 			// Function uses the current route id e.g. 1, 2
@@ -45,7 +48,7 @@
 				});
 			},
 			onLoad () {
-				const page = this.$route.params.id;
+				const page = this.CURRENT_PAGE;
 				this.dispatchFetch(page);
 			}
 		},

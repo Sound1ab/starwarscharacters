@@ -2,6 +2,7 @@ import axios from 'axios';
 import {fetchMachine} from '@/js/vuex/FSM/fetch-machine';
 import {transition} from '@/js/vuex/fsm-transition';
 import {starWars} from '@/js/vuex/api';
+import {parseQuery} from '@/js/helpers/parse-query';
 
 export const FETCH_TRANSITION = 'FETCH_TRANSITION';
 export const CREATE_CANCEL_TOKEN = 'CREATE_CANCEL_TOKEN';
@@ -36,9 +37,9 @@ const actions = {
 	// Function dynamically decides on which query to send
 	// based on the type of dispatch function used.
 	// Either page load or search
-	[FETCH_DATA] ({commit, dispatch}, {params: {type, page = 0, query = ''}}) {
+	[FETCH_DATA] ({commit, dispatch}, {params: {type, page = 1, query = ''}}) {
 		const queryString = type === 'SEARCH' && query.length > 0
-			? `?search=${query}`
+			? `?page=${page}&search=${query}`
 			: `?page=${page}`;
 		axios.get(`${starWars['PEOPLE']}${queryString}`)
 			.then(res => {
@@ -72,8 +73,31 @@ const mutations = {
 	}
 };
 
+const getters = {
+	PARSED_API_QUERY (state) {
+		const parsedPreviousQuery = state.previous ? parseQuery(state.previous) : {};
+		const parsedNextQuery = state.next ? parseQuery(state.next) : {};
+		let obj = {
+			previous: parsedPreviousQuery,
+			next: parsedNextQuery
+		};
+		console.log(obj);
+		return obj;
+	},
+	CURRENT_PAGE (state) {
+		const parsedNextQuery = state.next ? parseQuery(state.next) : {};
+		const parsedPreviousQuery = state.previous ? parseQuery(state.previous) : {};
+		return parsedNextQuery.page
+			? parseInt(parsedNextQuery.page - 1, 10)
+			: parsedPreviousQuery.page
+				? parseInt(parsedPreviousQuery.page, 10) + 1
+				: 1;
+	}
+};
+
 export default {
 	state,
 	mutations,
-	actions
+	actions,
+	getters
 };

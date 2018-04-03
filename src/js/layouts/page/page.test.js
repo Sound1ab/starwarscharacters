@@ -30,6 +30,10 @@ describe('Pagination', () => {
 		};
 		store = new Vuex.Store({
 			actions,
+			getters: {
+				PARSED_API_QUERY: () => {},
+				CURRENT_PAGE: () => 2
+			},
 			state: {
 				fetch: {
 					data: ''

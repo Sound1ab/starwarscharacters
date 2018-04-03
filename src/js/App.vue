@@ -2,7 +2,7 @@
 	<div id="app">
 		<loading></loading>
 		<search></search>
-		<router-view :key="`page-${$route.params.id}`"></router-view>
+		<router-view></router-view>
 		<pagination></pagination>
 	</div>
 </template>

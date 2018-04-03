@@ -11,10 +11,9 @@ export default new Router({
 	scrollBehavior: () => ({y: 0}),
 	routes: [
 		{
-			path: '/:id',
+			path: '/',
 			name: 'page',
 			component: Page
-		},
-		{path: '*', redirect: '/1'}
+		}
 	]
 });
